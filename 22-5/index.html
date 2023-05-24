@@ -1,13 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="./index.js"></script>
     <title>Document</title>
-</head>
-<body>
+
+    <style>
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        height: 100vh;
+        width: 100%;
+      }
+
+      .container {
+        height: 100%;
+        width: 100%;
+        display: grid;
+        place-items: center;
+      }
+      #checkbox {
+        display: none;
+      }
+      .toggle {
+        height: 80px;
+        width: 200px;
+        border-radius: 9999px;
+        /* background-image: url(https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=874&q=80); */
+        background-size: cover;
+        position: relative;
+        cursor: pointer;
+        transition: all 0.5s ease-in-out;
+        box-shadow: 6px 6px 10px #0000003d;
+        background-image: url(./sunIcon.svg);
+      }
+
+      #checkbox:checked + .toggle {
+        /* background-image: url(https://images.unsplash.com/photo-1475924156734-496f6cac6ec1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80); */
+        background-size: cover;
+        background-image: url(./moonIcon.svg);
+      }
+
+      .toggle::before {
+        content: "";
+        height: 80px;
+        width: 80px;
+        position: absolute;
+        left: 0;
+        border-radius: 50%;
+        background-color: #f4f4f4;
+        transition: all 0.5s ease-in-out;
+        background-image: url(./sunIcon.svg);
+    background-size: cover;
+      }
+
+      #checkbox:checked + .toggle::before {
+        position: absolute;
+        left: calc(100% - 80px);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="daynight">
+        <label for="checkbox">
+          <input type="checkbox" name="" id="checkbox" />
+          <div class="toggle">
+            <div class="star1"></div>
+            <div class="star2"></div>
+          </div>
+        </label>
+      </div>
+    </div> 
+
+  <image id = "colorImage" class = "image" src = "./img1.png"></image>
+
     
-</body>
+    <!-- <img src="./moonIcon.svg" id="colorImage" class="image" ></img>
+    <button id = "button2" type = "button">Change to B&W</button>
+    <script src="app.js" type="text/javascript"></script>
+
+
+    <script>
+      let colorImage = document.getElementById("colorImage");
+let button2 = document.getElementById("button2");
+
+function changeToBW() {
+
+    if (colorImage.getAttribute('src') === "./moonIcon.svg") {
+        colorImage.setAttribute('src', "./sunIcon.svg");
+    }
+    else {
+        colorImage.setAttribute('src', "./moonIcon.svg");
+    }
+}
+
+button2.addEventListener("click", changeToBW); -->
+    </script>
+  </body>
 </html>
