@@ -31,40 +31,42 @@
         display: none;
       }
       .toggle {
-        height: 80px;
-        width: 200px;
+        height: 30px;
+        width: 90px;
         border-radius: 9999px;
-        /* background-image: url(https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=874&q=80); */
+ 
         background-size: cover;
         position: relative;
         cursor: pointer;
         transition: all 0.5s ease-in-out;
         box-shadow: 6px 6px 10px #0000003d;
-        background-image: url(./sunIcon.svg);
+       
       }
 
       #checkbox:checked + .toggle {
-        /* background-image: url(https://images.unsplash.com/photo-1475924156734-496f6cac6ec1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80); */
+       
         background-size: cover;
-        background-image: url(./moonIcon.svg);
       }
 
       .toggle::before {
         content: "";
-        height: 80px;
-        width: 80px;
+        height: 30px;
+        width: 30px;
         position: absolute;
         left: 0;
         border-radius: 50%;
         background-color: #f4f4f4;
         transition: all 0.5s ease-in-out;
-        background-image: url(./sunIcon.svg);
-    background-size: cover;
+        background-image: url(./moonIcon.svg);
+    
+        background-size: cover;
       }
 
       #checkbox:checked + .toggle::before {
         position: absolute;
-        left: calc(100% - 80px);
+        left: calc(67% );
+        background-image: url(./sunIcon.svg);
+
       }
     </style>
   </head>
