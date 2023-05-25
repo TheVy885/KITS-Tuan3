@@ -22,7 +22,7 @@ const StyledSideBar = styled.div`
   background-color: white;
   height: 100vh;
   padding: 32px;
-
+  /* position: fixed; */
   .logo {
     display: flex;
     align-items: center;
