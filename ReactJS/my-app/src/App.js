@@ -38,7 +38,7 @@ function App() {
     { path: "/", element: <Home />,},
     { path: "about", element: <About /> },
     { path: "login", element: <LoginPage /> },
-    { path: "*", element: <NotFoundPage /> },
+    // { path: "*", element: <NotFoundPage /> },
   ]);
   return element;
 }

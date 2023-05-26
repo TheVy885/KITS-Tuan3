@@ -3,11 +3,13 @@ import { Button } from "component/button/button";
 import ethIcon from "assets/eth.svg";
 const StyledCard = styled.div`
   padding: 24px;
+  margin: 0;
   background-color: white;
   border-radius: 20px;
   font-size: 12px;
   line-height: 16px;
-
+  width: 164px;
+  height: 157px;
   color: #747475;
   .title {
     color: #747475;
@@ -25,6 +27,7 @@ const StyledCard = styled.div`
     gap: 34px; */
     font-weight: 700;
     color: #27262e;
+    padding-right: 16px;
   }
   .ammount-wrapper {
     /* margin-bottom: 12px; */
@@ -46,6 +49,10 @@ const StyledCard = styled.div`
 
     color: #27262e;
   }
+  .btn {
+    margin-top: 20px;
+    justify-content: center;
+  }
 `;
 export const Card = ({ title, amount, content, percent }) => {
   return (
@@ -55,7 +62,7 @@ export const Card = ({ title, amount, content, percent }) => {
         <div className="ammount-wrapper">
           <img className="eth" src={ethIcon} alt="eth"></img>
           <div>
-            <span className="amount">{amount}</span> ETH
+            <span className="amount">{amount} ETH</span>
           </div>
         </div>
       ) : (
@@ -63,9 +70,11 @@ export const Card = ({ title, amount, content, percent }) => {
           <span className="content">{content}</span> %
         </div>
       )}
-      <Button percent={percent} boderColor="#E9E9E9">
-        {Math.abs(percent)}%
-      </Button>
+      <div className="btn">
+        <Button percent={percent} boderColor="#E9E9E9">
+          {Math.abs(percent)}%
+        </Button>
+      </div>
     </StyledCard>
   );
 };

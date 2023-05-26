@@ -50,6 +50,9 @@ const HeaderStyled = styled.div`
     top: 16px;
     left: 16px;
   }
+  .user img:hover{
+ 
+  }
 `;
 const Header = () => {
   return (

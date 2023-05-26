@@ -163,7 +163,7 @@ const StyledSideBar = styled.div`
     /* background: #5429ff; */
     border-radius: 18px;
   }
-  .btn-content{
+  .btn-content {
     display: flex;
     justify-content: space-between;
   }
@@ -181,12 +181,27 @@ const StyledNavItem = styled.div`
     text-decoration: unset;
     color: #7a797d;
   }
+  .active {
+    /* color: #f30ee4; */
+  }
+  .item-text {
+    margin-left: 12px;
+  }
 `;
 const NavItem = ({ text, path, img }) => {
   return (
     <StyledNavItem>
       <img src={img} alt="nav-icon"></img>
-      <NavLink to={path}>{text}</NavLink>
+      {/* <NavLink to={path}>{text}</NavLink> */}
+
+
+      <NavLink to="/">
+          
+          <span className="item-text">{text}</span>
+
+
+        </NavLink>
+
     </StyledNavItem>
   );
 };
@@ -272,30 +287,39 @@ export const SideBar = () => {
       <div className="nav">
         <NavItem
           text="Dashboard"
-          path="/"
+          path=""
           img={dashboard}
           className="dashboard"
         ></NavItem>
-        <NavItem text="Market" path="/" img={marketIcon}></NavItem>
-        <NavItem text="Active Bids" path="/" img={bidIcon}></NavItem>
+        {/* <NavItem text="Market" path="" img={marketIcon}></NavItem> */}
+        <NavLink to="/login">
+          <img src={marketIcon} alt="" />
+          <span className="item-text"  img={marketIcon}>Market</span>
+        </NavLink>
+
+        <NavLink to="/">
+          <img src={marketIcon} alt="" />
+          <span className="item-text"  img={marketIcon}>Market</span>
+        </NavLink>
+        <NavItem text="Active Bids" path="" img={bidIcon}></NavItem>
       </div>
       <div className="profile">Profile</div>
       <div className="nav">
         <NavItem
           text="My Portfolio"
-          path="/"
+          path=""
           img={portfolio}
           className="dashboard"
         ></NavItem>
-        <NavItem text="Wallet" path="/" img={wallet}></NavItem>
-        <NavItem text="Favourites" path="/" img={favourites}></NavItem>
-        <NavItem text="History" path="/" img={history}></NavItem>
-        <NavItem text="Settings" path="/" img={settings}></NavItem>
+        <NavItem text="Wallet" path="yurfyf" img={wallet}></NavItem>
+        <NavItem text="Favourites" path="kuigyu" img={favourites}></NavItem>
+        <NavItem text="History" path="kuigkuggj" img={history}></NavItem>
+        <NavItem text="Settings" path="gfgj" img={settings}></NavItem>
       </div>
       <div className="other">Other</div>
       <StyledFlex>
         <div>
-          <NavItem text="Light Mode" path="/" img={lightmode}></NavItem>
+          <NavItem text="Light Mode" path="" img={lightmode}></NavItem>
         </div>
         <div>
           <StyledToggle>
@@ -326,9 +350,13 @@ export const SideBar = () => {
         <div className="btn-top-up">
           <button>
             <div className="btn-content">
-              <img src={plusIcon} style={{background: "#5429ff",width:"20px",height:"20px"}} alt="" />
+              <img
+                src={plusIcon}
+                style={{ background: "#5429ff", width: "20px", height: "20px" }}
+                alt=""
+              />
               <span>Top Up Balance</span>
-              <img src={nextIcon}  alt="" />
+              <img src={nextIcon} alt="" />
             </div>
           </button>
         </div>

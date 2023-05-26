@@ -14,7 +14,9 @@ const StyledButton = styled.button`
   color: ${props => props.fontSize};
   img {
     margin-right: 8px;
+    
   }
+  
 `;
 export const Button = ({ width, height, textColor, bgColor, boderColor, percent, fontSize, borderRadius, children, ...rest }) => {
   return <StyledButton 
