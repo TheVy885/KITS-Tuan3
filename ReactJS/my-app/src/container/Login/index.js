@@ -1,6 +1,3 @@
-export const LoginPage=()=>{
-    return(
-        <div>Login Page</div>
-    )
-}
 
+import { LoginPage } from "./login";
+export { LoginPage };

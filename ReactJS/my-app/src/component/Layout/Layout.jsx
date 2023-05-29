@@ -10,6 +10,8 @@ import user from "assets/user.svg";
 
 import ape from "assets/smilling-ape.svg";
 import { Follow } from "component/follow";
+
+import { LoginPage } from "container/Login";
 const LayoutStyled = styled.div`
   /* background-color: white; */
   background-color: #caeae6;
