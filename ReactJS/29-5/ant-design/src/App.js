@@ -1,40 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
-import { Button, Space } from 'antd';
-import { AdminPage } from 'component/Button';
+import logo from "./logo.svg";
+import "./App.css";
+import { Button, Space } from "antd";
+import { PrimaryLayout } from "component/Layout";
+import { AdminPage } from "container/Admin";
+import { Route, Routes } from "react-router-dom";
+import { useRoutes } from "react-router-dom";
+import { UserPage } from "container/User";
+import { LoginPage } from "container/Login";
+
 function App() {
-  return (
-    // <div className="App">
-    //   <header className="App-header">
-    //     <img src={logo} className="App-logo" alt="logo" />
-    //     <p>
-    //       Edit <code>src/App.js</code> and save to reload.
-    //     </p>
-    //     <a
-    //       className="App-link"
-    //       href="https://reactjs.org"
-    //       target="_blank"
-    //       rel="noopener noreferrer"
-    //     >
-    //       Learn React
-    //     </a>
-    //   </header>
-    // </div>
-    
-  //   <Space className="site-button-ghost-wrapper" wrap>
-  //   <Button type="primary" ghost>
-  //     Primary
-  //   </Button>
-  //   <Button ghost>Default</Button>
-  //   <Button type="dashed" ghost>
-  //     Dashed
-  //   </Button>
-  //   <Button type="primary" danger ghost>
-  //     Danger
-  //   </Button>
-  // </Space>
- <AdminPage></AdminPage>
-  );
+   let element = useRoutes([
+    { path: "/", element: <LoginPage />,},
+     { path: "user", element: <UserPage /> },
+     { path: "admin", element: <AdminPage /> },
+    { path: "*", element: <LoginPage /> },
+  ]);
+  return element;
+
+
+  // <Routes>
+  //   <Route path="/" element={<AdminPage/>} ></Route>
+  // </Routes>
+ 
 }
 
 export default App;
