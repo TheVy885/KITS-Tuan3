@@ -9,6 +9,7 @@ import {
   Layout,
   Menu,
   theme,
+  Switch,
 } from "antd";
 import { Column } from "@ant-design/plots";
 import { useState, useEffect } from "react";
@@ -28,7 +29,14 @@ import React from "react";
 import styled from "styled-components";
 import { PieCustomer } from "component/Pie";
 import { Helmet } from "react-helmet";
-import { ArrowDownOutlined, ArrowUpOutlined } from "@ant-design/icons";
+import {
+  ArrowDownOutlined,
+  ArrowUpOutlined,
+  MailOutlined,
+  SettingOutlined,
+} from "@ant-design/icons";
+import { UserPage } from "container/User";
+import { NavLink } from "react-router-dom";
 
 const StyledAdminPage = styled.div`
   margin: 0;
@@ -38,22 +46,58 @@ const StyledAdminPage = styled.div`
   justify-content: center;
 `;
 
-const { Header, Content, Footer, Sider } = Layout;
-const ListMenu = ["Dashboard", "User", "Customer", "Orders", "Coupon"];
+//
+function getItem(label, key, icon, children, type) {
+  return {
+    key,
+    icon,
+    children,
+    label,
+    type,
+  };
+}
+
+
 const items = [
-  UserOutlined,
-  VideoCameraOutlined,
-  UploadOutlined,
-  BarChartOutlined,
-  CloudOutlined,
-  AppstoreOutlined,
-  TeamOutlined,
-  ShopOutlined,
-].map((icon, index) => ({
-  key: String(index + 1),
-  icon: React.createElement(icon),
-  label: `${ListMenu.splice(0, 1)} `,
-}));
+  getItem("Navigation One", "sub1", <MailOutlined />, [
+    getItem("Admin","admin"),
+    getItem("User","user"),
+    getItem("Option 3", "3"),
+    getItem("Option 4", "4"),
+  ]),
+  getItem("Navigation Two", "sub2", <AppstoreOutlined />, [
+    getItem("Option 5", "5"),
+    getItem("Option 6", "6"),
+    getItem("Submenu", "sub3", null, [
+      getItem("Option 7", "7"),
+      getItem("Option 8", "8"),
+    ]),
+  ]),
+  getItem("Navigation Three", "sub4", <SettingOutlined />, [
+    getItem("Option 9", "9"),
+    getItem("Option 10", "10"),
+    getItem("Option 11", "11"),
+    getItem("Option 12", "12"),
+  ]),
+];
+
+//
+const { Header, Content, Footer, Sider } = Layout;
+// const ListMenu = ["Dashboard", "User", "Customer", "Orders", "Coupon"];
+// const items = [
+//   UserOutlined,
+//   VideoCameraOutlined,
+//   UploadOutlined,
+//   BarChartOutlined,
+//   CloudOutlined,
+//   AppstoreOutlined,
+//   TeamOutlined,
+//   ShopOutlined,
+// ].map((icon, index) => ({
+//   key: String(index + 1),
+//   icon: React.createElement(icon),
+//   label: `${ListMenu.splice(0, 1)} `,
+// }));
 
 const StyledContent = styled.div`
   * {
@@ -65,7 +109,7 @@ const StyledContent = styled.div`
     display: flex;
     flex-direction: column;
   }
-  .card-content{
+  .card-content {
     display: flex;
   }
 `;
@@ -82,9 +126,20 @@ const StyledPie = styled.div`
 `;
 
 export const AdminPage = () => {
-  const {
-    token: { colorBgContainer },
-  } = theme.useToken();
+  // const {
+  //   token: { colorBgContainer },
+  // } = theme.useToken();
+
+  const [theme, setTheme] = useState("dark");
+  const [current, setCurrent] = useState("1");
+  const changeTheme = (value) => {
+    setTheme(value ? "dark" : "light");
+  };
+  const onClick = (e) => {
+    console.log("click ", e);
+    setCurrent(e.key);
+    window.location.assign(e.key);
+  };
 
   const data = [
     {
@@ -170,44 +225,31 @@ export const AdminPage = () => {
         <title>Admin Page</title>
         <meta name="description" content="" />
       </Helmet>
-      <Sider
+
+      <br />
+      <br />
+      <Menu
+       
+        theme={theme}
+        onClick={onClick}
         style={{
-          overflow: "auto",
-          height: "100vh",
-          position: "fixed",
-          left: 0,
-          top: 0,
-          bottom: 0,
+          width: 256,
+          height: 1000
         }}
-      >
-        <div className="demo-logo-vertical" />
-        <Menu
-          theme="dark"
-          mode="inline"
-          defaultSelectedKeys={["1"]}
-          items={items}
-        />
-      </Sider>
-      <Layout
-        className="site-layout"
-        style={{
-          marginLeft: 200,
-        }}
-      >
-        <Header
-          style={{
-            padding: 0,
-            background: colorBgContainer,
-          }}
-        />
-        <StyledContent>
-          <Content
-          // style={{
-          //   margin: "24px 16px 0",
-          //   overflow: "initial",
-          // }}
-          >
-            {/* <div
+        defaultOpenKeys={["sub1"]}
+        selectedKeys={[current]}
+        mode="inline"
+        items={items}
+      />
+
+      <StyledContent  style={{width:"100%"}}>
+        <Content style={{width:"100%"}}
+        // style={{
+        //   margin: "24px 16px 0",
+        //   overflow: "initial",
+        // }}
+        >
+          {/* <div
             style={{
               padding: 24,
               textAlign: "center",
@@ -230,28 +272,29 @@ export const AdminPage = () => {
               )
             }
           </div> */}
-            <Divider orientation="left">Số lượng sản phẩm</Divider>
-            <Row
-              gutter={{
-                xs: 8,
-                sm: 16,
-                md: 24,
-                lg: 32,
-              }}
-            >
-              <Col className="gutter-row" span={6}>
-                <div className="card" style={style}>
-                  <Col>Tổng doanh thu</Col>
-                  <Col style={{ fontSize: "20px" }}>¥ 126,560</Col>
-                  <div className="card-content">
+          <Divider orientation="left">Số lượng sản phẩm</Divider>
+          <Row
+            gutter={{
+              xs: 8,
+              sm: 16,
+              md: 24,
+              lg: 32,
+            }}
+          >
+            <Col className="gutter-row" span={6}>
+              <div className="card" style={style}>
+                <Col>Tổng doanh thu</Col>
+                <Col style={{ fontSize: "20px" }}>¥ 126,560</Col>
+                <div className="card-content">
                   <Col span={12}>
                     <Card bordered={false}>
-                      <Statistic
+                      <Statistic style={{ fontSize: "12px" }}
                         title="Hàng Tuần"
                         value={12}
                         precision={2}
                         valueStyle={{
                           color: "#3f8600",
+                          fontSize: "16px"
                         }}
                         prefix={<ArrowUpOutlined />}
                         suffix="%"
@@ -260,46 +303,45 @@ export const AdminPage = () => {
                   </Col>
                   <Col span={12}>
                     <Card bordered={false}>
-                      <Statistic
+                      <Statistic style={{ fontSize: "12px" }}
                         title="Hàng năm"
                         value={11}
                         precision={2}
                         valueStyle={{
                           color: "#cf1322",
+                          fontSize: "16px"
                         }}
                         prefix={<ArrowDownOutlined />}
                         suffix="%"
                       />
                     </Card>
                   </Col>
-                  
-                  </div>
-                  <Col>Daily sales were ¥12,423</Col>
                 </div>
-              </Col>
-              <Col className="gutter-row" span={6}>
-                <div style={style}>col-6</div>
-              </Col>
-              <Col className="gutter-row" span={6}>
-                <div style={style}>col-6</div>
-              </Col>
-              <Col className="gutter-row" span={6}>
-                <div style={style}>col-6</div>
-              </Col>
-            </Row>
+                <Col>Daily sales were ¥12,423</Col>
+              </div>
+            </Col>
+            <Col className="gutter-row" span={6}>
+              <div style={style}>col-6</div>
+            </Col>
+            <Col className="gutter-row" span={6}>
+              <div style={style}>col-6</div>
+            </Col>
+            <Col className="gutter-row" span={6}>
+              <div style={style}>col-6</div>
+            </Col>
+          </Row>
 
-            <h1>Số lượng Khách Hàng</h1>
-            {/* <PieCustomer /> */}
-            <h1>Số lượng Đơn Hàng</h1>
-            {/* <Column {...config} /> */}
-          </Content>
-        </StyledContent>
-        <Footer
-          style={{
-            textAlign: "center",
-          }}
-        ></Footer>
-      </Layout>
+          <h1>Số lượng Khách Hàng</h1>
+          {/* <PieCustomer /> */}
+          <h1>Số lượng Đơn Hàng</h1>
+          {/* <Column {...config} /> */}
+        </Content>
+      </StyledContent>
+      <Footer
+        style={{
+          textAlign: "center",
+        }}
+      ></Footer>
     </Layout>
   );
 };

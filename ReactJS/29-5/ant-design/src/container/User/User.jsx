@@ -16,7 +16,7 @@ import {
   InputNumber,
   Modal,
 } from "antd";
-
+import { useDispatch, useSelector } from "react-redux";
 import { Column } from "@ant-design/plots";
 import { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
@@ -36,6 +36,7 @@ import styled from "styled-components";
 import { PieCustomer } from "component/Pie";
 import { Helmet } from "react-helmet";
 import { ArrowDownOutlined, ArrowUpOutlined } from "@ant-design/icons";
+import { users } from "store/Models/user";
 const layout = {
   labelCol: {
     span: 8,
@@ -96,10 +97,20 @@ const StyledPie = styled.div`
   /* width: 500px; */
 `;
 
+
+
 export const UserPage = () => {
+  const usersStore = useSelector((state) => state.users);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch.users.fetchUsers();
+  }, []);
+
   const {
     token: { colorBgContainer },
   } = theme.useToken();
+  //giao diện table
   const columns = [
     {
       title: "Key",
@@ -120,8 +131,11 @@ export const UserPage = () => {
     },
     {
       title: "Address",
-      dataIndex: "address",
+      
+      dataIndex:"address",
       key: "address",
+      render: (address) => <span>{address.city} {address.street}</span>
+      ,
     },
     // {
     //   title: "Tags",
@@ -150,7 +164,7 @@ export const UserPage = () => {
       render: (_, record) => (
         <Space size="middle">
           <a>Invite {record.name}</a>
-          <a>Delete</a>
+          <button>Delete</button>
         </Space>
       ),
     },
@@ -179,6 +193,9 @@ export const UserPage = () => {
     },
   ];
 
+  // const data = [];
+  // data=dispatch.user.fetchUsers();
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const showModal = () => {
     setIsModalOpen(true);
@@ -189,25 +206,43 @@ export const UserPage = () => {
   const handleCancel = () => {
     setIsModalOpen(false);
   };
-  const [dataTable, setDataTable] = useState(data);
+  // const [dataTable, setDataTable] = useState(data);
   const onFinish = (user) => {
-    console.log("Success:", data);
+    // console.log("Success:", data);
 
-    const newData = dataTable.concat([
-      {
-        key: Math.floor(Math.random() * 100 + 1),
-        name: user.name,
-        age: user.age,
-        address: user.address,
-        // tag: user.tag,
-      },
-    ]);
-    setDataTable(newData);
-    console.log("newData", newData);
+    // const newData = dataTable.concat([
+    //   {
+    //     key: Math.floor(Math.random() * 100 + 1),
+    //     name: user.name,
+    //     age: user.age,
+    //     address: user.address,
+    //     // tag: user.tag,
+    //   },
+    // ]);
+    // setDataTable(newData);
+    // console.log("newData", newData);
+
+    const newData = [...usersStore.listUser, {
+      key: Math.floor(Math.random() * 10000) + 1,
+      name: user.name,
+      username:  user.name,
+      address: user.address,
+
+    }]
+    console.log(newData);
+    dispatch.users.setListUser(newData);
+
   };
+
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };
+
+  // function onDelete(key)
+  // {
+  //   const newData=dataTable.filter(item=>item!==key)
+  //   setDataTable(newData);
+  // }
   return (
     <Layout hasSider>
       <Helmet>
@@ -308,18 +343,6 @@ export const UserPage = () => {
             >
               <Input />
             </Form.Item>
-            {/* <Form.Item
-              label="Tag"
-              name="tag"
-              rules={[
-                {
-                  required: true,
-                  message: "Please input your tag!",
-                },
-              ]}
-            >
-              <Input />
-            </Form.Item> */}
 
             <Form.Item
               wrapperCol={{
@@ -338,7 +361,8 @@ export const UserPage = () => {
             <Button type="primary" onClick={showModal}>
               Add User
             </Button>
-            <Table columns={columns} dataSource={dataTable} />;
+            {/* <Table columns={columns} dataSource={dataTable} />; */}
+            <Table columns={columns} dataSource={usersStore.listUser} />;
           </Content>
         </StyledContent>
         <Footer
