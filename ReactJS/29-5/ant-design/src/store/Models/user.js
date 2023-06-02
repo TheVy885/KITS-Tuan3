@@ -31,7 +31,7 @@ export const users = {
   }),
   selectors: (slice, createSelector) => ({
     selectCount() {
-      return slice((state) => state.count);
+      return slice((state) => state.count); 
     },
   }),
 };

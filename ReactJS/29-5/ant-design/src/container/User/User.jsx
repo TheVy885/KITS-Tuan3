@@ -152,6 +152,11 @@ export const UserPage = () => {
 
       dataIndex: "address",
       key: "address",
+            render: (address) => (
+        <span>
+          {address.city} 
+        </span>
+      ),
       // render: (address) => (
       //   <span>
       //     {address.city} {address.street}
@@ -171,7 +176,7 @@ export const UserPage = () => {
       key: "action",
       render: (_, record) => (
         <Space size="middle">
-          <a>Invite {record.name}</a>
+          {/* <a>Invite {record.name}</a> */}
 
           
           <button onClick={(e) => {onDelete(record,e);console.log(record)}}>Delete</button>

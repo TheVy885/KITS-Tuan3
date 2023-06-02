@@ -37,6 +37,9 @@ import {
 } from "@ant-design/icons";
 import { UserPage } from "container/User";
 import { NavLink } from "react-router-dom";
+import { TokenPrice } from "component/TokenPrice";
+import { MoneyAllocation } from "component/MoneyAllocation";
+import { Profit } from "component/profit";
 
 const StyledAdminPage = styled.div`
   margin: 0;
@@ -57,11 +60,10 @@ function getItem(label, key, icon, children, type) {
   };
 }
 
-
 const items = [
   getItem("Navigation One", "sub1", <MailOutlined />, [
-    getItem("Admin","admin"),
-    getItem("User","user"),
+    getItem("Admin", "admin"),
+    getItem("User", "user"),
     getItem("Option 3", "3"),
     getItem("Option 4", "4"),
   ]),
@@ -111,6 +113,22 @@ const StyledContent = styled.div`
   }
   .card-content {
     display: flex;
+  }
+  .token-price {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 52px;
+    /* identical to box height, or 162% */
+
+    /* System/Monotone/M1 */
+
+    color: #4a4a65;
+  }
+  .grid-container {
+    display: grid;
+    grid-template-columns: auto auto;
   }
 `;
 const style = {
@@ -229,12 +247,11 @@ export const AdminPage = () => {
       <br />
       <br />
       <Menu
-       
         theme={theme}
         onClick={onClick}
         style={{
           width: 256,
-          height: 1000
+          height: 1000,
         }}
         defaultOpenKeys={["sub1"]}
         selectedKeys={[current]}
@@ -242,12 +259,13 @@ export const AdminPage = () => {
         items={items}
       />
 
-      <StyledContent  style={{width:"100%"}}>
-        <Content style={{width:"100%"}}
-        // style={{
-        //   margin: "24px 16px 0",
-        //   overflow: "initial",
-        // }}
+      <StyledContent style={{ width: "100%" }}>
+        <Content
+          style={{ width: "100%" }}
+          // style={{
+          //   margin: "24px 16px 0",
+          //   overflow: "initial",
+          // }}
         >
           {/* <div
             style={{
@@ -272,7 +290,8 @@ export const AdminPage = () => {
               )
             }
           </div> */}
-          <Divider orientation="left">Số lượng sản phẩm</Divider>
+
+          {/* <Divider orientation="left">Số lượng sản phẩm</Divider>
           <Row
             gutter={{
               xs: 8,
@@ -329,12 +348,26 @@ export const AdminPage = () => {
             <Col className="gutter-row" span={6}>
               <div style={style}>col-6</div>
             </Col>
-          </Row>
+          </Row> */}
 
-          <h1>Số lượng Khách Hàng</h1>
+          {/* <h1>Số lượng Khách Hàng</h1> */}
           {/* <PieCustomer /> */}
-          <h1>Số lượng Đơn Hàng</h1>
+          {/* <h1>Số lượng Đơn Hàng</h1> */}
           {/* <Column {...config} /> */}
+
+          <h1 className="token-price">Token Price</h1>
+          <TokenPrice />
+
+          <div class="grid-container">
+            <div class="grid-item">
+              <h1 className="token-price">Money Allocation</h1>
+              <MoneyAllocation />
+            </div>
+            <div class="grid-item">
+            <h1 className="token-price">Profit</h1>
+            <Profit/>
+            </div>
+          </div>
         </Content>
       </StyledContent>
       <Footer
