@@ -14,47 +14,47 @@ import {
 
 const data = [
   {
-    name: "Page A",
+    name: "06 March",
     uv: 4,
-    pv: 2400,
+    pv: 24,
     amt: 2400,
   },
   {
-    name: "Page B",
+    name: "07 March",
     uv: -3,
     pv: 138,
     amt: 2210,
   },
   {
-    name: "Page C",
+    name: "08 March",
     uv: -2,
-    pv: -9800,
+    pv: -98,
     amt: 2290,
   },
   {
-    name: "Page D",
+    name: "09 March",
     uv: 2,
-    pv: 3908,
+    pv: 39,
     amt: 2000,
   },
-  {
-    name: "Page E",
-    uv: -1,
-    pv: 4800,
-    amt: 2181,
-  },
-  {
-    name: "Page F",
-    uv: 2,
-    pv: -3800,
-    amt: 2500,
-  },
-  {
-    name: "Page G",
-    uv: 3,
-    pv: 4300,
-    amt: 2100,
-  },
+//   {
+//     name: "Page E",
+//     uv: -1,
+//     pv: 48,
+//     amt: 2181,
+//   },
+//   {
+//     name: "Page F",
+//     uv: 2,
+//     pv: -38,
+//     amt: 2500,
+//   },
+//   {
+//     name: "Page G",
+//     uv: 3,
+//     pv: 43,
+//     amt: 2100,
+//   },
 ];
 class Profit extends PureComponent {
  
@@ -78,8 +78,8 @@ class Profit extends PureComponent {
           <Tooltip />
           <Legend />
           <ReferenceLine y={0} stroke="#000" />
-          <Bar dataKey="pv" fill="#8884d8" />
-          <Bar dataKey="uv" fill="#82ca9d" />
+          <Bar dataKey="pv" fill="#4FB5C9" />
+          <Bar dataKey="uv" fill="#F05D5E" />
         </BarChart>
       </ResponsiveContainer>
     );
