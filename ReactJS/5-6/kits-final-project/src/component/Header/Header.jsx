@@ -58,16 +58,24 @@ export const Header = () => {
         <img src={icon_search} alt="" />
         <div className="store-name">Lisa Store</div>
         <div className="nav">
-          <div className="nav-item" style={{paddingRight:"25px"}}>
+          <div className="nav-item" style={{ paddingRight: "25px" }}>
             {/* <img src={icon_user} alt="" />
             <div>Account</div> */}
 
-            <ButtonDefault url={icon_user} name_button="Account" />
+            <ButtonDefault
+              url={icon_user}
+              name_button="Account"
+              textColor="black"
+            />
           </div>
           <div className="nav-item">
             {/* <img src={icon_bag} alt="" />
             <div>Shopping</div> */}
-                <ButtonDefault url={icon_bag} name_button="Shopping" />
+            <ButtonDefault
+              url={icon_bag}
+              name_button="Shopping"
+              textColor="black"
+            />
           </div>
         </div>
       </div>

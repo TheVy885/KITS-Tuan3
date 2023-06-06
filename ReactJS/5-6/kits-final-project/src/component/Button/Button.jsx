@@ -10,6 +10,7 @@ const ButtonDefaultStyled = styled.div`
   color: ${(props) => props.textColor};
   justify-content: center;
   align-items: center;
+  border: none;
   img {
     width: 20px;
     height: 20px;
@@ -20,6 +21,22 @@ const ButtonDefaultStyled = styled.div`
     font-size: 18px;
     font-weight: 400;
     line-height: 21px;
+    /* color: black; */
+  }
+  button {
+    border: none;
+    display: flex;
+    gap: 12px;
+    width: ${(props) => props.width};
+    height: ${(props) => props.height};
+    background-color: ${(props) => props.bgColor};
+    color: ${(props) => props.textColor};
+    justify-content: center;
+    align-items: center;
+    border: none;
+  }
+  button:hover {
+    color: #ff6f61;
   }
 `;
 export const ButtonDefault = ({
@@ -30,7 +47,6 @@ export const ButtonDefault = ({
   height,
   bgColor,
   textColor,
-
 }) => {
   console.log(url, name_button, type);
   switch (type) {
@@ -47,11 +63,11 @@ export const ButtonDefault = ({
           height={height}
           bgColor={bgColor}
           textColor={textColor}
-
         >
-          
-          <img src={url} alt="" />
-          <span>{name_button}</span>
+          <button>
+            {url ? <img src={url} alt="" /> : null}
+            <span>{name_button}</span>
+          </button>
         </ButtonDefaultStyled>
       );
   }
