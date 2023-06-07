@@ -30,7 +30,9 @@ import follow3 from "../../assets/follow3.svg";
 import follow4 from "../../assets/follow4.svg";
 import follow5 from "../../assets/follow5.svg";
 import follow6 from "../../assets/follow6.svg";
+import icon_insta from "../../assets/icon_insta.svg";
 import { Footer } from "../../component/Footer/index";
+import { ResponsiveSlick } from "../../component/Slick";
 const StyledShoppingPage = styled.div`
   padding-left: 300px;
   padding-right: 300px;
@@ -95,7 +97,7 @@ const StyledShoppingPage = styled.div`
     gap: 25px;
   }
   .product {
-    margin-top: 100px;
+    /* margin-top: 100px; */
   }
 
   .product-text {
@@ -150,6 +152,12 @@ const StyledShoppingPage = styled.div`
     text-transform: capitalize;
 
     color: #000000;
+  }
+  .grid-container-list-best-seller {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    gap: 25px;
+    padding-top: 40px;
   }
   .list-best-seller {
     padding-top: 40px;
@@ -213,6 +221,13 @@ const StyledBackgroundContent = styled.div`
 
     color: #1e2832;
   }
+  .btn:hover {
+    color: black;
+    background-color: #ff6f61;
+  }
+  .background button:hover {
+    background-color: #ff6f61;
+  }
 `;
 
 const StyledFollow = styled.div`
@@ -253,6 +268,56 @@ const StyledFollow = styled.div`
   button:hover {
     /* color: white; */
     background-color: #ff6f61;
+  }
+  .img-hover {
+    width: 200px;
+    height: 200px;
+    /* background-color: (black 0.6); */
+    background: black;
+    position: absolute;
+    /* top:10px;
+    left:20px; */
+    top: 4294px;
+    /* opacity: 0;
+    visibility: hidden; */
+    opacity: 0.3;
+  }
+  .img-follow {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .outer {
+    opacity: 0;
+    -webkit-transition: 0.4s ease-in-out;
+    transition: 0.4s ease-in-out;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.2);
+  }
+
+  .outer:hover {
+    opacity: 1;
+  }
+  .section img:hover {
+    opacity: 1;
+  }
+  .section {
+    position: relative;
+    /* margin: 3em auto; */
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .outer img {
+    width: 50px;
+    height: 50px;
   }
 `;
 
@@ -426,7 +491,7 @@ export const ShoppingPage = () => {
         </div>
         <div className="nav">
           <div className="left-nav">
-            <NavLink style={{ textDecoration: "none" }}>All Products</NavLink>
+            <div>All Products</div>
             <NavLink style={{ textDecoration: "none" }}>T-Shirt</NavLink>
             <NavLink style={{ textDecoration: "none" }}>Hoodies</NavLink>
             <NavLink style={{ textDecoration: "none" }}>Jacket</NavLink>
@@ -442,52 +507,109 @@ export const ShoppingPage = () => {
             />
           </div>
         </div>
-        <div className="list-best-seller">
-          <Product
-            img={green_dress}
-            price="236.00"
-            type="Dress"
-            name="Basic Dress Green"
-            tag="Hot"
-            // bgTag="red"
-          />
-          <Product
-            img={luxe}
-            price="160.00"
-            type="Glasses"
-            name="Nike Sportswear Futura Luxe"
-          />
-          <Product
-            img={hoodies}
-            // price="155.00"
-            type="Dress"
-            name="Yellow Reserved Hoodie"
-            tag="Sale"
-            oldPrice="364.00"
-            salePrice="155.00"
-          />
-          <Product
-            img={sport_shoe}
-            // price="198.00"
-            oldPrice="220.00"
-            salePrice="198.00"
-            type="Shoe"
-            name="Nike Air Zoom Pegasus"
-            tag="Sale"
-          />
-        </div>
+        {/* <div className="grid-container-list-best-seller">
+          <div class="grid-item">
+            <Product
+              img={green_dress}
+              price="236.00"
+              type="Dress"
+              name="Basic Dress Green"
+              tag="Hot"
+              // bgTag="red"
+            />
+          </div>
+          <div class="grid-item">
+            <Product
+              img={luxe}
+              price="160.00"
+              type="Glasses"
+              name="Nike Sportswear Futura Luxe"
+            />
+          </div>
+          <div class="grid-item">
+            <Product
+              img={hoodies}
+              // price="155.00"
+              type="Dress"
+              name="Yellow Reserved Hoodie"
+              tag="Sale"
+              oldPrice="364.00"
+              salePrice="155.00"
+            />
+          </div>
+          <div class="grid-item">
+            <Product
+              img={sport_shoe}
+              // price="198.00"
+              oldPrice="220.00"
+              salePrice="198.00"
+              type="Shoe"
+              name="Nike Air Zoom Pegasus"
+              tag="Sale"
+            />
+          </div>
+        </div> */}
+        <ResponsiveSlick></ResponsiveSlick>
       </StyledShoppingPage>
+
       <StyledFollow>
         <div className="follow-title">
           Follow products and discounts on Instagram
         </div>
         <div className="img-follow">
+          <div className="section">
+            <img src={follow1} alt="" />
+
+            <div className="outer">
+              <img src={icon_insta} alt="" />
+            </div>
+          </div>
+          <div className="section">
+            <img src={follow2} alt="" />
+
+            <div className="outer">
+              <img src={icon_insta} alt="" />
+            </div>
+          </div>
+          <div className="section">
+            <img src={follow3} alt="" />
+
+            <div className="outer">
+              <img src={icon_insta} alt="" />
+            </div>
+          </div>
+          <div className="section">
+            <img src={follow4} alt="" />
+
+            <div className="outer">
+              <img src={icon_insta} alt="" />
+            </div>
+          </div>
+          <div className="section">
+            <img src={follow5} alt="" />
+
+            <div className="outer">
+              <img src={icon_insta} alt="" />
+            </div>
+          </div>
+          <div className="section">
+            <img src={follow6} alt="" />
+
+            <div className="outer">
+              <img src={icon_insta} alt="" />
+            </div>
+          </div>
+          {/* </div> */}
+          {/* <div className="img-hover"></div> */}
+
+          {/* <div className="section">
           <img src={follow1} alt="" />
-          <img src={follow2} alt="" />
-          <img src={follow3} alt="" />
-          <img src={follow4} alt="" />
-          <img src={follow5} alt="" />
-          <img src={follow6} alt="" />
+          <div className="outer">
+            
+             <img src={icon_insta} alt="" />
+           
+          </div>
+        </div> */}
         </div>
         <div className="lisa">@Lisa.Official</div>
       </StyledFollow>

@@ -21,7 +21,7 @@ const StyledHomePage = styled.div`
     float: left;
     display: flex;
     flex-direction: column;
-    gap:50px;
+    gap: 50px;
     padding-right: 150px;
   }
   .right-content {
@@ -46,7 +46,7 @@ const StyledHomePage = styled.div`
     font-weight: 400;
     font-size: 30px;
     line-height: 55px;
-    
+
     text-transform: capitalize;
   }
   button {
@@ -59,7 +59,11 @@ const StyledHomePage = styled.div`
 
     color: #ffffff;
   }
-  .tree{
+  button:hover {
+    background-color: #ff6f61;
+    color: #ffffff;
+  }
+  .tree {
     position: absolute;
     top: 320px;
     right: 0px;
@@ -77,7 +81,15 @@ export const HomePage = () => {
             you can explore ans shop many differnt collection from various
             barands here.
           </div>
-          <ButtonDefault url={icon_bag_white} name_button="Shop Now" width="222px" height="72px" bgColor="black" textColor="white" NavLink="./shopping"/>
+          <ButtonDefault
+            url={icon_bag_white}
+            name_button="Shop Now"
+            width="222px"
+            height="72px"
+            bgColor="black"
+            textColor="white"
+            NavLink="./shopping"
+          />
         </div>
         <div className="right-content">
           <img src={img_girl} alt="" />

@@ -35,9 +35,7 @@ const ButtonDefaultStyled = styled.div`
     align-items: center;
     border: none;
   }
-  button:hover {
-    color: #ff6f61;
-  }
+  
 `;
 export const ButtonDefault = ({
   url,

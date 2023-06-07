@@ -70,6 +70,9 @@ const StyledFooter = styled.div`
     gap: 12px;
     padding-top: 22px;
   }
+  .footer-content div:hover {
+    color: #ff6f61;
+  }
 `;
 
 const StyledPayment = styled.div`
@@ -95,7 +98,7 @@ const StyledPayment = styled.div`
 
     color: #ffffff;
   }
-  .right{
+  .right {
     display: flex;
   }
   .scroll {
@@ -106,6 +109,9 @@ const StyledPayment = styled.div`
     line-height: 22px;
     text-transform: capitalize;
     color: #ffffff;
+  }
+  .payment .right:hover {
+    background-color: #ff6f61;
   }
 `;
 

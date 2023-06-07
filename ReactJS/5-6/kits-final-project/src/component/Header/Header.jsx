@@ -49,6 +49,22 @@ const StyledHeader = styled.div`
   .nav-item {
     display: flex;
     gap: 10px;
+    color: #000000;
+    background-color: transparent;
+  }
+  button{
+    color: #000000;
+    background-color: transparent;
+  }
+  .nav-item button{
+    color: #000000;
+  }
+  .nav-item button{
+    color: #000000;
+  }
+  .nav-item button:hover{
+    color:#ff6f61;
+    background-color: transparent;
   }
 `;
 export const Header = () => {
@@ -66,6 +82,7 @@ export const Header = () => {
               url={icon_user}
               name_button="Account"
               textColor="black"
+              
             />
           </div>
           <div className="nav-item">
@@ -75,6 +92,7 @@ export const Header = () => {
               url={icon_bag}
               name_button="Shopping"
               textColor="black"
+            
             />
           </div>
         </div>

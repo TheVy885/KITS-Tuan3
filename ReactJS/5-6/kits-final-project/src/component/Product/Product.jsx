@@ -141,6 +141,23 @@ const StyledProduct = styled.div`
   .shop-now:hover {
     color: #ff6f61;
   }
+  .product:hover + .action:hover {
+    /* display: none; */
+
+    /* visibility: visible;
+    opacity: 1;
+     */
+    color: #ff6f61;
+  }
+  .product:hover + .action:hover .shop-now:hover {
+    /* display: none; */
+
+    /* visibility: visible;
+    opacity: 1;
+     */
+    color: #ff6f61;
+  }
+
 `;
 
 export const Product = ({
