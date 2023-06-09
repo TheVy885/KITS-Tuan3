@@ -195,6 +195,9 @@ const StyledShoppingPage = styled.div`
       display: flex;
       justify-content: space-between;
     }
+    .tree {
+      display: none;
+    }
   }
   @media (max-width: 1200px) {
     .collect {
@@ -424,6 +427,106 @@ const StyledHomePage = styled.div`
     position: absolute;
     top: 320px;
     right: 0px;
+  }
+  //media
+  @media (max-width: 1400px) {
+    .collect {
+      /* color: red; */
+      font-size: 64px;
+    }
+    .tree {
+      display: none;
+    }
+    .container {
+      display: flex;
+      justify-content: space-between;
+      padding-left: 250px;
+      padding-right: 250px;
+    }
+    .content {
+      font-size: 25px;
+    }
+  }
+  @media (max-width: 1200px) {
+    .collect {
+      color: blue;
+      font-size: 54px;
+    }
+    .tree {
+      display: none;
+    }
+    .container {
+      display: flex;
+      justify-content: space-between;
+      padding-left: 200px;
+      padding-right: 200px;
+    }
+    .content {
+      font-size: 20px;
+    }
+  }
+  @media (max-width: 992px) {
+    .collect {
+      color: green;
+      font-size: 44px;
+    }
+    .tree {
+      display: none;
+    }
+    .container {
+      display: flex;
+      justify-content: space-between;
+      padding-left: 150px;
+      padding-right: 150px;
+    }
+    .right-content {
+      display: none;
+    }
+    .content {
+      font-size: 15px;
+    }
+  }
+  @media (max-width: 768px) {
+    .collect {
+      color: pink;
+      font-size: 34px;
+    }
+    .tree {
+      display: none;
+    }
+    .container {
+      display: flex;
+      justify-content: space-between;
+      padding-left: 100px;
+      padding-right: 100px;
+    }
+    .right-content {
+      display: none;
+    }
+    .content {
+      font-size: 10px;
+    }
+  }
+  @media (max-width: 576px) {
+    .collect {
+      color: violet;
+      font-size: 24px;
+    }
+    .tree {
+      display: none;
+    }
+    .container {
+      display: flex;
+      justify-content: space-between;
+      padding-left: 50px;
+      padding-right: 50px;
+    }
+    .right-content {
+      display: none;
+    }
+    .content {
+      font-size: 10px;
+    }
   }
 `;
 export const ShoppingPage = () => {

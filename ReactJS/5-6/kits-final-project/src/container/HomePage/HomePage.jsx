@@ -68,6 +68,79 @@ const StyledHomePage = styled.div`
     top: 320px;
     right: 0px;
   }
+
+  //media
+  @media (max-width: 1400px) {
+    .collect {
+      color: navy;
+      font-size: 64px;
+    }
+    .tree {
+      display: none;
+    }
+    .container {
+      padding-left: 250px;
+      padding-right: 250px;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  @media (max-width: 1200px) {
+    .collect {
+      color: blue;
+    }
+    .tree {
+      display: none;
+    }
+    .container {
+      padding-left: 200px;
+      padding-right: 200px;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  @media (max-width: 992px) {
+    .collect {
+      color: green;
+    }
+    .tree {
+      display: none;
+    }
+    .container {
+      padding-left: 150px;
+      padding-right: 150px;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  @media (max-width: 768px) {
+    .collect {
+      color: pink;
+    }
+    .tree {
+      display: none;
+    }
+    .container {
+      padding-left: 100px;
+      padding-right: 100px;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  @media (max-width: 576px) {
+    .collect {
+      color: violet;
+    }
+    .tree {
+      display: none;
+    }
+    .container {
+      padding-left: 50px;
+      padding-right: 50px;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
 `;
 export const HomePage = () => {
   return (

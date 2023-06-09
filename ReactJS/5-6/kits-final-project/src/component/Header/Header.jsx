@@ -101,7 +101,7 @@ const StyledHeader = styled.div`
   @media (max-width: 992px) {
     .store-name {
       color: green;
-      font-size: 24px;
+      font-size: 30px;
       transition: 1s ease-in;
     }
     .container{
@@ -121,7 +121,7 @@ const StyledHeader = styled.div`
   @media (max-width: 768px) {
     .store-name {
       color: pink;
-      font-size: 18px;
+      font-size: 30px;
       transition: 1s ease-in;
     }
     .container{
@@ -137,7 +137,7 @@ const StyledHeader = styled.div`
   @media (max-width: 576px) {
     .store-name {
       color: red;
-      font-size: 12px;
+      font-size: 30px;
       transition: 1s ease-in;
     }
     .container{
