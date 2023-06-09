@@ -1,36 +1,44 @@
-import React, { useState, useEffect } from 'react';
-import ReactDOM from 'react-dom';
-import { Gauge } from '@ant-design/plots';
+import React, { useState, useEffect } from "react";
+import ReactDOM from "react-dom";
+import { Gauge } from "@ant-design/plots";
 
-export const GaugeChart = ({percent}) => {
+export const GaugeChart = ({ percent,colorChart }) => {
   const config = {
-    percent: 0.75,
+    percent: 0.85,
+    // percent: "${(props)=>props.percent}",
     range: {
-      color: 'l(0) 0:#B8E1FF 1:#3D76DD',
+      color: "l(0) 0:#5F27CD ",
+      // color:${prop=},
+      // color:${(props)=>props.colorChart},
+      // color: "${percent}",
+     
     },
-    startAngle: Math.PI,
-    endAngle: 2 * Math.PI,
+    // color: "red",
+    // startAngle: Math.PI,
+    startAngle:Math.PI/30,
+    endAngle: 4.1 * Math.PI,
     indicator: null,
     statistic: {
       title: {
-        offsetY: -36,
+        // offsetY: -36,
+        // offsetY: 20,
         style: {
-          fontSize: '12px',
-          color: '#4B535E',
+          fontSize: "12px",
+          color: "#4B535E",
         },
-        formatter: () => '70%',
+        // formatter: () => "Current Customers",
       },
       content: {
         style: {
-          fontSize: '24px',
-          lineHeight: '44px',
-          color: '#4B535E',
+          fontSize: "20px",
+          lineHeight: "20px",
+          color: "#4B535E",
         },
-        formatter: () => '',
+        // formatter: () => "Current Customers",
       },
     },
   };
-  return <Gauge {...config} style={{width:"40%"}} />;
+  return <Gauge {...config} style={{ width: "90%", paddingTop:"10px" ,height:"130px" }} />;
 };
 
 // ReactDOM.render(<DemoGauge />, document.getElementById('container'));

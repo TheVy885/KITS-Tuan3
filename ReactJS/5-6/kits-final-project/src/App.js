@@ -10,9 +10,10 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/shopping" element={<ShoppingPage />} />
+        {/* <Route path="/" element={<HomePage />} /> */}
+        <Route path="/" element={<ShoppingPage />} />
         <Route path="/admin" element={<AdminPage />} />
+        <Route path="*" element={<ShoppingPage />} />
       </Routes>
     </>
   );

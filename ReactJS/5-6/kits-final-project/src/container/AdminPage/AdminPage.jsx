@@ -197,6 +197,27 @@ const StyledAdminPage = styled.div`
     /* width: 300px; */
     display: flex;
     justify-content: space-between;
+    /* height: 50px; */
+    gap: 30px;
+    padding-top: 20px;
+  }
+  .gauge-chart-1 {
+    padding-left: 38px;
+    width: 74%;
+  }
+  .gauge-chart-2 {
+    padding-right: 38px;
+    width: 74%;
+  }
+  .cus {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px;
+
+    color: #a7a7a7;
+padding-left: 16px;
   }
 `;
 export const AdminPage = () => {
@@ -286,11 +307,23 @@ export const AdminPage = () => {
                 <img src={icon_edit} alt="" />
               </div>
               <div className="gauge-chart">
-                <div>
+                <div className="gauge-chart-1">
                   <GaugeChart></GaugeChart>
+                  <h4 className="cus">Current Customers</h4>
                 </div>
-                <div>
+                <div className="gauge-chart-2">
                   <GaugeChart></GaugeChart>
+                  <h4 className="cus">New Customers</h4>
+                </div>
+              </div>
+              <div className="gauge-chart">
+                <div className="gauge-chart-1">
+                  <GaugeChart></GaugeChart>
+                  <h4 className="cus">Target Customers</h4>
+                </div>
+                <div className="gauge-chart-2">
+                  <GaugeChart></GaugeChart>
+                  <h4 className="cus">Retarget Customers</h4>
                 </div>
               </div>
             </div>

@@ -181,6 +181,41 @@ const StyledShoppingPage = styled.div`
   a:hover {
     color: #ff6f61;
   }
+
+  //media
+  @media (max-width: 1400px) {
+    .collect {
+      color: red;
+    }
+    .container {
+      display: flex;
+      justify-content: space-between;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  @media (max-width: 1200px) {
+    .collect {
+      color: blue;
+    }
+  }
+  @media (max-width: 992px) {
+    .collect {
+      color: green;
+    }
+  }
+  @media (max-width: 768px) {
+    .collect {
+      color: pink;
+    }
+  }
+  @media (max-width: 576px) {
+    .collect {
+      color: violet;
+    }
+  }
 `;
 
 const StyledBackgroundContent = styled.div`

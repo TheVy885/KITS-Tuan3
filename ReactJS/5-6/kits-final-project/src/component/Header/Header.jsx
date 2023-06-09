@@ -66,6 +66,88 @@ const StyledHeader = styled.div`
     color:#ff6f61;
     background-color: transparent;
   }
+
+
+  //media 
+  @media (max-width: 1400px) {
+    .store-name {
+      color: red;
+      font-size: 36px;
+      transition: 1s ease-in;
+    }
+    .container{
+      display: flex;
+    }
+    .nav-item button{
+      font-size: 10px;
+      transition: 1s ease-in; 
+    }
+    
+  }
+  @media (max-width: 1200px) {
+    .store-name {
+      color: blue;
+      font-size: 30px;
+      transition: 1s ease-in;
+    }
+    .container{
+      display: flex;
+    }
+    .nav-item button{
+      font-size: 10px;
+      transition: 1s ease-in; 
+    }
+  }
+  @media (max-width: 992px) {
+    .store-name {
+      color: green;
+      font-size: 24px;
+      transition: 1s ease-in;
+    }
+    .container{
+      display: flex;
+      flex-direction:column;
+
+    } 
+    .nav-item button{
+      font-size: 10px;
+      transition: 1s ease-in; 
+    }
+    .nav{
+      display: flex;
+      flex-direction:column;
+    }
+  }
+  @media (max-width: 768px) {
+    .store-name {
+      color: pink;
+      font-size: 18px;
+      transition: 1s ease-in;
+    }
+    .container{
+      display: flex;
+    }
+    .nav-item button{
+      font-size: 10px;
+      transition: 1s ease-in; 
+      width: 50%;
+      height: 50%;
+    }
+  }
+  @media (max-width: 576px) {
+    .store-name {
+      color: red;
+      font-size: 12px;
+      transition: 1s ease-in;
+    }
+    .container{
+      display: flex;
+    }
+    .nav-item button{
+      font-size: 10px;
+      transition: 1s ease-in; 
+    }
+  }
 `;
 export const Header = () => {
   return (
