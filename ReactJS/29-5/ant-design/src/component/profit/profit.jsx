@@ -11,6 +11,7 @@ import {
   ReferenceLine,
   ResponsiveContainer,
 } from "recharts";
+import styled from "styled-components";
 
 const data = [
   {
@@ -56,6 +57,7 @@ const data = [
 //     amt: 2100,
 //   },
 ];
+
 class Profit extends PureComponent {
  
   render() {
